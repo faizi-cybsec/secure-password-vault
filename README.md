@@ -12,11 +12,11 @@ A lightweight, offline password manager for Android built with Capacitor and And
 
 | Vault | Settings |
 |---|---|
-| ![Vault](screenshots/home.png) | ![Settings](screenshots/settings.png) |
+| ![Vault](Screenshots/home.jpeg) | ![Settings](Screenshots/settings.jpeg) |
 
 | Login | Add Entry |
 |---|---|
-| ![Login](screenshots/login.png) | ![Add Entry](screenshots/add.png) |
+| ![Login](Screenshots/login.jpeg) | ![Add Entry](Screenshots/add.jpeg) |
 
 ---
 
