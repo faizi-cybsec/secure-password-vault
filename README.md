@@ -1,6 +1,6 @@
 # 🔐 Secure Password Vault
 
-A lightweight, offline password manager for Android built with Capacitor and Android Studio. Secure Password Vault allows users to safely store website credentials behind a master password while keeping all data stored locally on the device.
+A lightweight, Offline Password Manager for Android ( built with Capacitor and Android Studio ). Secure Password Vault allows users to safely store website Credentials behind a Master Password while keeping all Data stored locally on the Device.
 
 ![Platform](https://img.shields.io/badge/Platform-Android-green)
 ![Storage](https://img.shields.io/badge/Storage-Offline-blue)
@@ -22,18 +22,18 @@ A lightweight, offline password manager for Android built with Capacitor and And
 
 ## ✨ Features
 
-- 🔐 Master password authentication
-- 📝 Store multiple website/app credentials
-- 👤 Save usernames or email addresses
-- 🔑 Secure password storage
-- 🎲 Built-in password generator
-- 👁 Show/hide password visibility
-- 📋 One-click password copy
-- 🔎 Search saved credentials
-- 💾 Export encrypted backups
-- 📥 Import encrypted backups
-- 📱 Fully offline operation
-- 🌙 Modern dark-themed interface
+- 🔐 Master Password Authentication
+- 📝 Store multiple Websites/Apps Credentials
+- 👤 Save Usernames or Email Addresses
+- 🔑 Secure Password Storage
+- 🎲 Built-in Password Generator
+- 👁 Show/Hide Password Toggle
+- 📋 One-click Password Copy
+- 🔎 Search Saved Credentials
+- 💾 Export Encrypted Backups
+- 📥 Import Encrypted Backups
+- 📱 Fully Offline
+- 🌙 Modern Dark-Themed Interface
 
 ---
 
