@@ -529,19 +529,46 @@ function openSettingsModal(){
   backdrop.addEventListener('click', (e)=>{ if(e.target === backdrop) backdrop.remove(); });
   document.getElementById('s-close').addEventListener('click', ()=> backdrop.remove());
 
-  document.getElementById('s-export').addEventListener('click', ()=>{
+  document.getElementById('s-export').addEventListener('click', async ()=>{
     const payload = {
       salt: localStorage.getItem(STORAGE_SALT),
       vault: JSON.parse(localStorage.getItem(STORAGE_VAULT))
     };
-    const blob = new Blob([JSON.stringify(payload)], {type:'application/json'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'vault-backup-' + new Date().toISOString().slice(0,10) + '.json';
-    a.click();
-    URL.revokeObjectURL(url);
-    toast('Backup downloaded');
+    const jsonStr = JSON.stringify(payload);
+    const filename = 'vault-backup-' + new Date().toISOString().slice(0,10) + '.json';
+
+    const nativePlugins = window.Capacitor && window.Capacitor.Plugins;
+    if(nativePlugins && nativePlugins.Filesystem){
+      try{
+        const written = await nativePlugins.Filesystem.writeFile({
+          path: filename,
+          data: jsonStr,
+          directory: 'CACHE',
+          encoding: 'utf8'
+        });
+        if(nativePlugins.Share){
+          await nativePlugins.Share.share({
+            title: 'Vault backup',
+            text: 'Encrypted vault backup — keep this somewhere safe.',
+            url: written.uri,
+            dialogTitle: 'Save your backup'
+          });
+        }else{
+          toast('Saved to app storage: ' + written.uri);
+        }
+      }catch(e){
+        toast('Export failed: ' + e.message);
+      }
+    }else{
+      const blob = new Blob([jsonStr], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(url);
+      toast('Backup downloaded');
+    }
   });
 
   const fileInput = document.getElementById('s-import-file');
