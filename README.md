@@ -113,3 +113,6 @@ This application is designed as an offline password vault:
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+
+Note: This project is intended as an educational demonstration of offline password management concepts and secure local credential storage.
